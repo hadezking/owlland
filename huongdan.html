@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn | Lũng Cú - Server dành riêng cho member Tổ Cú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
+        body, html {
+            min-height: 100%;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            color: white;
+            /* Dùng lại background của anh */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG/bck.png') no-repeat center center fixed/cover;
+        }
+
+        /* --- NAVBAR (Giữ nguyên từ Index) --- */
+        .navbar {
+            display: flex; justify-content: center; list-style: none;
+            padding: 2vh; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100;
+        }
+        .navbar li { margin: 0 15px; }
+        .navbar a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+        .navbar a:hover { color: #f1c40f; }
+
+        /* --- CONTENT AREA (Cho phép cuộn) --- */
+        .container {
+            max-width: 900px; margin: 50px auto; padding: 20px; z-index: 10; position: relative;
+        }
+
+        .guide-box {
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
+            padding: 40px; line-height: 1.8;
+        }
+
+        h2 { color: #f1c40f; border-bottom: 2px solid #2ecc71; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+        h3 { color: #2ecc71; margin: 25px 0 10px 0; }
+        p { margin-bottom: 15px; opacity: 0.9; }
+        
+        .step-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #f1c40f; }
+
+        /* Lá rụng */
+        #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .leaf { position: absolute; color: #2ecc71; opacity: 0.5; animation: fall linear infinite; }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        footer { text-align: center; padding: 30px; opacity: 0.6; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div id="leafContainer"></div>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html"><i class="fas fa-home"></i> TRANG CHỦ</a></li>
+            <li><a href="http://discord.gg/tocu" target="_blank"><i class="fab fa-discord"></i> DISCORD</a></li>
+            <li><a href="huong-dan.html" style="color: #f1c40f;"><i class="fas fa-book"></i> HƯỚNG DẪN</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="guide-box">
+            <h2><i class="fas fa-info-circle"></i> Hướng dẫn tham gia Lũng Cú</h2>
+            
+            <p>Chào mừng anh em đã đến với vương quốc của Cú. Để có trải nghiệm tốt nhất, hãy làm theo các bước dưới đây nhen!</p>
+
+            <h3>1. Thông tin máy chủ</h3>
+            <div class="step-box">
+                <p><b>Địa chỉ IP:</b> <span style="color: #f1c40f;">play.tocu.top</span></p>
+                <p><b>Phiên bản:</b> 1.20.1 - 1.20.4 (Khuyến khích dùng 1.20.1)</p>
+            </div>
+
+            <h3>2. Cách tham gia</h3>
+            <div class="step-box">
+                <p><b>Bước 1:</b> Mở Minecraft Launcher và chọn phiên bản phù hợp.</p>
+                <p><b>Bước 2:</b> Chọn "Multiplayer" (Chơi mạng) -> "Add Server" (Thêm máy chủ).</p>
+                <p><b>Bước 3:</b> Nhập tên "Lũng Cú" và địa chỉ IP ở trên.</p>
+                <p><b>Bước 4:</b> Nhấn "Done" và bắt đầu quẩy thôi!</p>
+            </div>
+
+            <h3>3. Luật của Tổ Cú</h3>
+            <ul style="margin-left: 20px;">
+                <li>Không sử dụng hack/cheat dưới mọi hình thức.</li>
+                <li>Tôn trọng các Cú khác trong cộng đồng.</li>
+                <li>Không phá hoại công trình (Griefing) của người khác.</li>
+                <li>Tham gia Discord để cập nhật tin tức mới nhất!</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Lũng Cú Server. Crafted with ❤️ by Hadez for the Owl Nest 🦉</p>
+    </footer>
+
+    <script>
+        const container = document.getElementById('leafContainer');
+        const leaves = ['🍃', '🍂', '🌿'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            leaf.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            container.appendChild(leaf);
+            setTimeout(() => { leaf.remove(); }, 10000);
+        }
+        setInterval(createLeaf, 900);
+    </script>
+</body>
+</html>
