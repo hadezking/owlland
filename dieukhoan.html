@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điều khoản & Miễn trừ trách nhiệm | Lũng Cú - Server dành riêng cho thành viên Tổ Cú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
+        body, html {
+            min-height: 100%;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG/bck.png') no-repeat center center fixed/cover;
+        }
+
+        .navbar {
+            display: flex; justify-content: center; list-style: none;
+            padding: 2vh; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100;
+        }
+        .navbar li { margin: 0 15px; }
+        .navbar a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+        .navbar a:hover { color: #f1c40f; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; z-index: 10; position: relative; }
+
+        .disclaimer-box {
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
+            padding: 40px; line-height: 1.7;
+        }
+
+        h2 { color: #f1c40f; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; margin-bottom: 25px; text-transform: uppercase; }
+        h3 { color: #2ecc71; margin: 25px 0 10px 0; font-size: 1.2rem; }
+        p, li { font-size: 0.95rem; opacity: 0.9; margin-bottom: 10px; }
+        
+        .alert-box { 
+            background: rgba(231, 76, 60, 0.1); padding: 20px; border-radius: 10px; 
+            border-left: 5px solid #e74c3c; margin: 20px 0;
+        }
+
+        #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .leaf { position: absolute; color: #2ecc71; opacity: 0.4; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+        footer { text-align: center; padding: 30px; opacity: 0.6; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div id="leafContainer"></div>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html"><i class="fas fa-home"></i> TRANG CHỦ</a></li>
+            <li><a href="huongdan.html"><i class="fas fa-book"></i> HƯỚNG DẪN</a></li>
+            <li><a href="dieukhoan.html" style="color: #f1c40f;"><i class="fas fa-gavel"></i> ĐIỀU KHOẢN</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="disclaimer-box">
+            <h2><i class="fas fa-shield-alt"></i> ĐIỀU KHOẢN & MIỄN TRỪ TRÁCH NHIỆM</h2>
+            
+            <p>Việc tham gia vào máy chủ <b>Lũng Cú</b>, đồng nghĩa với việc đồng ý với các điều khoản và quy định dưới đây. Chúng tôi có quyền thay đổi nội dung này bất cứ lúc nào để phù hợp với sự phát triển của cộng đồng.</p>
+
+            <div class="alert-box">
+                <p><b>LƯU Ý QUAN TRỌNG:</b> Lũng Cú Server là một dự án phi lợi nhuận dành cho cộng đồng Tổ Cú. Chúng tôi không có mối liên kết chính thức với Mojang AB hay Microsoft.</p>
+            </div>
+
+            <h3>1. Tài sản ảo và Dữ liệu</h3>
+            <p>Mọi vật phẩm, công trình và đơn vị tiền tệ trong game đều là tài sản kỹ thuật số thuộc quyền quản lý của Server. Chúng tôi không chịu trách nhiệm bồi thường trong trường hợp mất mát dữ liệu do bug game, sự cố hosting hoặc lỗi từ phía người chơi (đặt mật khẩu yếu, bị hack nick).</p>
+
+            <h3>2. Miễn trừ trách nhiệm về Hành vi</h3>
+            <p>Ban quản trị (BQT) không chịu trách nhiệm về bất kỳ phát ngôn, hành động gây hấn hoặc tranh chấp cá nhân nào giữa các người chơi. Mọi hành vi vi phạm pháp luật Việt Nam trên môi trường Server sẽ bị xử lý nghiêm khắc và cung cấp thông tin cho cơ quan chức năng nếu có yêu cầu.</p>
+
+            <h3>3. Chính sách Ủng hộ (Donation)</h3>
+            <p>Mọi khoản đóng góp từ phía người chơi đều là <b>tự nguyện</b> nhằm mục đích duy trì chi phí vận hành máy chủ (VPS, Hosting, Domain, Plugin). Chúng tôi có chính sách <b>KHÔNG HOÀN TIỀN</b> dưới mọi hình thức sau khi giao dịch đã hoàn tất.</p>
+
+            <h3>4. Quyền hạn của Ban Quản Trị</h3>
+            <p>BQT có toàn quyền đình chỉ tài khoản (Ban) vĩnh viễn đối với các cá nhân có hành vi: Hack/Cheat, phá hoại công trình (Griefing), xúc phạm danh dự người khác hoặc gây mất đoàn kết cộng đồng mà không cần thông báo trước.</p>
+
+            <h3>5. Miễn trừ trách nhiệm về Sức khỏe</h3>
+            <p>Người chơi cần tự điều tiết thời gian tham gia game để đảm bảo sức khỏe. Chúng tôi không chịu trách nhiệm cho bất kỳ vấn đề thể chất hoặc tinh thần nào phát sinh do việc chơi game quá độ.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b> for the Owl Nest 🦉</p>
+    </footer>
+
+    <script>
+        const container = document.getElementById('leafContainer');
+        const leaves = ['🍃', '🍂', '🌿'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            leaf.style.animationDuration = (Math.random() * 6 + 8) + 's';
+            container.appendChild(leaf);
+            setTimeout(() => { leaf.remove(); }, 12000);
+        }
+        setInterval(createLeaf, 1000);
+    </script>
+</body>
+</html>
