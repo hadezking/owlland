@@ -4,110 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lũng Cú | Vùng đất của Cú - Server Minecraft Dành riêng cho thành viên Tổ Cú</title>
+    <title>Lũng Cú | Vùng đất của Cú - Tổ Cú Server</title>
     <link rel="icon" type="image/png" href="IMG/icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <style>
-        /* --- RESET & CHẶN SCROLL --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
+        /* --- RESET & MINECRAFT FONT --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.2s ease; }
         
         body, html {
             height: 100%;
-            overflow: hidden; /* Chặn hoàn toàn việc cuộn trang */
-            font-family: 'Be Vietnam Pro', sans-serif !important;
+            overflow: hidden;
+            font-family: 'VT323', monospace !important;
             background-color: #000;
+            color: #fff;
         }
 
-#home {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* Thêm màu nền xanh rừng để nếu mất ảnh web vẫn hiện chữ */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('IMG/bck.png') no-repeat center center/cover,
-                #1a2a1a; /* Màu xanh rừng dự phòng */
-    position: relative;
-}
-
-        /* --- HIỆU ỨNG LÁ RỤNG --- */
-        #leafContainer {
-            position: fixed;
-            top: -50px; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1;
-        }
-        .leaf {
-            position: absolute; color: #2ecc71; opacity: 0.6;
-            user-select: none; animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('IMG/bck.png') no-repeat center center/cover,
+                        #1a2a1a;
+            position: relative;
         }
 
-        /* --- PHONG CÁCH GLASSMORPHISM --- */
-        .glass-card {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
+        /* --- HIỆU ỨNG LÁ RỤNG (PIXEL) --- */
+        #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .leaf { position: absolute; color: #30b80e; opacity: 0.8; animation: fall linear infinite; user-select: none; font-size: 20px; }
+        @keyframes fall { 
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; } 
+            10% { opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } 
+        }
+
+        /* --- PHONG CÁCH PIXEL CARD (GIẢ ĐÁ) --- */
+        .mc-card {
+            background: #404040;
+            /* Tạo viền 3D kiểu Minecraft */
+            border: 4px solid #000;
+            box-shadow: inset 4px 4px 0 #888, inset -4px -4px 0 #222;
+            padding: 25px;
             z-index: 10;
         }
 
-        /* Navbar */
-        .navbar {
-            display: flex; justify-content: center; list-style: none;
-            padding: 2vh; background: rgba(0,0,0,0.6); z-index: 20;
-        }
-        .navbar li { margin: 0 15px; }
+        /* Navbar kiểu nút bấm Minecraft */
+        .navbar { display: flex; justify-content: center; list-style: none; padding: 2vh; z-index: 20; }
+        .navbar li { margin: 0 10px; }
         .navbar a { 
-            color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 1px;
+            color: #fff; text-decoration: none; font-size: 1.4rem;
+            padding: 8px 15px; background: #555; border: 2px solid #000;
+            box-shadow: inset 2px 2px 0 #888, inset -2px -2px 0 #222;
+            display: block;
         }
-        .navbar a:hover { color: #f1c40f; }
+        .navbar a:hover { background: #777; color: #ffff55; transform: scale(1.05); }
 
         /* Logo Area */
         .logoarea { margin-top: 2vh; z-index: 10; text-align: center; }
-        .logoarea img { max-height: 18vh; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
-        .logoarea h1 { color: #fff; font-size: 1.5rem; margin-top: 10px; text-transform: uppercase; }
+        .logoarea img { max-height: 18vh; image-rendering: pixelated; filter: drop-shadow(4px 4px 0px #000); }
+        .logoarea h1 { font-size: 2.2rem; margin-top: 10px; color: #fff; text-shadow: 3px 3px 0 #000; }
 
-        /* Main Content co giãn theo màn hình */
+        /* Main Content */
         .main-content {
             display: flex; justify-content: center; align-items: center;
-            gap: 30px; padding: 0 5vw; flex: 1; z-index: 10;
+            gap: 40px; padding: 0 5vw; flex: 1; z-index: 10;
         }
-        .server-status-box, .discord-box { flex: 1; max-width: 400px; height: 320px; display: flex; flex-direction: column; justify-content: center; }
+        .server-status-box, .discord-box { flex: 1; max-width: 420px; height: 350px; }
 
-        /* Copy IP Button */
+        /* Nút IP đặc trưng */
         .copyIP {
-            border: 2px dashed #f1c40f; padding: 15px; border-radius: 10px;
-            cursor: pointer; text-align: center; margin-top: 15px;
+            background: #30b80e; border: 3px solid #000;
+            box-shadow: inset 3px 3px 0 #5eff5e, inset -3px -3px 0 #1a6b08;
+            padding: 15px; cursor: pointer; text-align: center; margin-top: 25px;
         }
-        .copyIP:hover { background: rgba(241, 196, 15, 0.1); }
+        .copyIP:hover { background: #3ccf15; }
+        .copyIP h4 { color: #ffff55; font-size: 1.6rem; text-shadow: 2px 2px 0 #000; }
 
-        /* Tooltip Hadez */
-        .hadez-tooltip { color: #f1c40f; cursor: help; font-weight: bold; position: relative; }
-        .hadez-tooltip:hover:after {
-            content: attr(data-tooltip); position: absolute; bottom: 130%; left: 50%;
-            transform: translateX(-50%); background: #2ecc71; color: #000;
-            padding: 5px 12px; border-radius: 6px; font-size: 0.7rem; white-space: nowrap;
-        }
-
-        footer { padding: 2vh; background: rgba(0,0,0,0.7); color: #777; text-align: center; z-index: 20; font-size: 0.8rem; }
-
-        /* Font Awesome Fix */
-        .fas, .fab { font-family: "Font Awesome 5 Free" !important; font-weight: 900 !important; }
+        footer { padding: 2vh; background: rgba(0,0,0,0.8); color: #aaa; text-align: center; z-index: 20; font-size: 1.1rem; }
+        footer a { color: #ffff55; text-decoration: none; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .main-content { flex-direction: column; overflow-y: auto; padding: 20px; }
-            .discord-box { display: none; } /* Mobile ẩn Discord cho gọn */
-            .logoarea h1 { font-size: 1.5rem; }
+            .main-content { flex-direction: column; overflow-y: auto; padding: 20px; gap: 20px; }
+            .discord-box { display: none; }
+            body { overflow-y: auto; }
         }
     </style>
 </head>
@@ -118,70 +101,61 @@
 
         <nav>
             <ul class="navbar">
-                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="/huongdan.html"><i class="fas fa-book"></i> Hướng Dẫn</a></li>
-                <li><a href="#"><i class="fas fa-headset"></i> Hỗ Trợ</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> TRANG CHỦ</a></li>
+                <li><a href="huongdan.html"><i class="fas fa-book"></i> HƯỚNG DẪN</a></li>
+                <li><a href="https://discord.gg/tocu" target="_blank"><i class="fab fa-discord"></i> DISCORD</a></li>
             </ul>
         </nav>
 
         <div class="logoarea">
-            <img src="IMG/logo.gif" alt="Logo">
-            <h1>Server <span style="color: #30b80efa;">Minecraft</span> dành riêng cho member Tổ Cú</h1>
+            <img src="IMG/logo.gif" alt="Logo Lũng Cú">
+            <h1>LŨNG CÚ <span style="color: #ffff55;">SURVIVAL</span></h1>
         </div>
 
         <div class="main-content">
-            <div class="server-status-box glass-card">
-                <h3 style="color: #2ecc71; margin-bottom: 20px; text-align: center;"><i class="fas fa-server"></i> TRẠNG THÁI MÁY CHỦ</h3>
-                <p style="color: #fff; font-size: 1.2rem; text-align: center; margin-bottom: 20px;">
-                    ONLINE: <span class="players" style="color: #2ecc71; font-weight: bold;">36</span>
-                </p>
+            <div class="server-status-box mc-card">
+                <h2 style="color: #30b80e; text-align: center; font-size: 1.8rem; text-shadow: 2px 2px 0 #000;">
+                    <i class="fas fa-signal"></i> SERVER STATUS
+                </h2>
+                <div style="margin: 30px 0; text-align: center;">
+                    <p style="font-size: 1.8rem;">NGƯỜI CHƠI: <span style="color: #ffff55;">36 / 100</span></p>
+                    <p style="font-size: 1.2rem; color: #30b80e; margin-top: 5px;">● MÁY CHỦ ĐANG MỞ</p>
+                </div>
+                
                 <div class="copyIP" data-clipboard-text="play.tocu.top">
-                    <p style="color: #fff; font-size: 0.9rem;">IP: <span style="color: #f1c40f; font-weight: bold;">****.TOCU.TOP</span></p>
-                    <small style="color: #888;">(Click to Copy)</small>
+                    <h4>IP: ****.TOCU.TOP</h4>
+                    <p style="color: #000; font-weight: bold; font-size: 0.9rem;">(BẤM ĐỂ SAO CHÉP)</p>
                 </div>
             </div>
 
-            <div class="discord-box glass-card">
-                <iframe src="https://discord.com/widget?id=873860011518996480&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" style="border-radius: 10px;"></iframe>
+            <div class="discord-box mc-card" style="padding: 10px;">
+                <iframe src="https://discord.com/widget?id=873860011518996480&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" style="border: 2px solid #000;"></iframe>
             </div>
         </div>
 
         <footer>
-    <p>
-        © 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b>. 
-        | <a href="dieukhoan.html" style="color: #888; text-decoration: underline;">Điều khoản & Miễn trừ</a>
-    </p>
-</footer>
+            <p>
+                © 2026 Lũng Cú Server - Designed by <span style="color: #ffff55;">Hadez</span> 🦉
+                | <a href="dieukhoan.html">ĐIỀU KHOẢN</a>
+            </p>
+        </footer>
     </div>
 
     <script>
         const container = document.getElementById('leafContainer');
-        const leaves = ['🍃', '🍂', '🌿'];
+        const leaves = ['🍃', '🌿'];
         function createLeaf() {
             const leaf = document.createElement('div');
             leaf.classList.add('leaf');
             leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
             leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
-            leaf.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            leaf.style.animationDuration = (Math.random() * 4 + 6) + 's';
             container.appendChild(leaf);
-            setTimeout(() => { leaf.remove(); }, 10000);
+            setTimeout(() => { leaf.remove(); }, 8000);
         }
-        setInterval(createLeaf, 800);
+        setInterval(createLeaf, 1000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script>new ClipboardJS('.copyIP');</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
