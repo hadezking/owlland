@@ -1,107 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-        <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Lũng Cú | Vùng đất của Cú</title>
-        <link rel="stylesheet" href="main.css">
-        <style>
-    /* Ép font cho toàn bộ trang */
-    body, h1, h2, h3, p, span, a, .typer {
-        font-family: 'Be Vietnam Pro', sans-serif !important;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lũng Cú | Vùng đất của Cú</title>
 
-    /* CHẶN không cho font chữ đè lên Font Awesome (icon) */
-    .fas, .fab, .far, .fa {
-        font-family: "Font Awesome 5 Free" !important; /* Giữ nguyên font của icon */
-        font-weight: 900 !important; /* Đảm bảo icon hiện rõ */
-    }
-</style>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-                integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-                crossorigin="anonymous">
-        <script src="JS/script.js"></script>
-        <script src="https://mcapi.us/scripts/minecraft.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/alertify.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        /* Tối ưu Font và hiệu ứng toàn trang */
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body, h1, h2, h3, p, span, a, .typer {
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+        }
+
+        /* Né Font Awesome để không mất Icon */
+        .fas, .fab, .far, .fa {
+            font-family: "Font Awesome 5 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        /* Hiệu ứng Glassmorphism cho các hộp thông tin */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.5); /* Sáng đèn xanh khi hover */
+        }
+
+        /* Chỉnh lại Logo cho nổi bật */
+        .logoarea img {
+            max-width: 250px;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+            margin-bottom: 20px;
+        }
+
+        .logoarea h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Nút Copy IP xịn xò */
+        .copyIP {
+            cursor: pointer;
+        }
+
+        .copyIP:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer cho chuyên nghiệp */
+        footer {
+            margin-top: 100px;
+            padding: 30px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <script src="JS/script.js"></script>
+    <script src="https://mcapi.us/scripts/minecraft.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/alertify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 </head>
 
 <body>
-        <div id="home">
-                <ul class="navbar">
-                        <li>
-                                <p id="theMessage">
-                                        <span id="message">NEWS:</span><span class="typer" id="main"
-                                                data-words="Server dành riêng cho member Tổ Cú"
-                                                data-delay="100" data-deleteDelay="1000" data-colors="#272727"></span>
-                                        <script async src=" https://unpkg.com/typer-dot-js@0.1.0/typer.js"> </script>
-                                </p>
-                        </li>
-                        <li><a href="#">HOME</a>
-                        </li>
-                        <li><a href="http://discord.gg/tocu">DISCORD</a></li>
-                        <li><a href="#">HƯỚNG DẪN</a></li>
-                        <li><a href="#">HỖ TRỢ</a></li>
-                </ul>
-                <div class="logoarea">
-                        <center>
-                                <img src="IMG/Logo.png">
-                                <h1>
-                                        Chào mừng Bạn đến với Lũng Cú
-                                </h1>
-                        </center>
-                </div>
-        <div class="main-content" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 40px; margin-top: 50px; padding: 0 20px;">
-    
-    <div class="server-status-box" style="flex: 1; max-width: 400px;">
-        <ul class="stats" style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 20px; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; border-left: 5px solid #2ecc71;">
-                <p style="font-size: 1.2rem; color: white;">
-                    <i class="fas fa-globe-europe"></i> 
-                    <b>ONLINE:</b> <span class="players" style="color: #2ecc71; font-weight: bold;">0</span>
+    <div id="home">
+        <ul class="navbar">
+            <li>
+                <p id="theMessage">
+                    <span id="message">NEWS:</span>
+                    <span class="typer" id="main" data-words="Server dành riêng cho member Tổ Cú" data-delay="100" data-deleteDelay="1000" data-colors="#2ecc71"></span>
+                    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
                 </p>
             </li>
-            <li class="copyIP" data-clipboard-text="play.tocu.top" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; border-left: 5px solid #f1c40f; cursor: pointer;">
-                <p style="font-size: 1.2rem; color: white;">
-                    <i class="fas fa-copy"></i> 
-                    <b>IP:</b> <span class="serverip" style="color: #f1c40f;">****.TOCU.TOP</span>
-                </p>
-                <small style="color: #aaa;">(Click để copy IP nhen anh em)</small>
-            </li>
+            <li><a href="#"><i class="fas fa-home"></i> TRANG CHỦ</a></li>
+            <li><a href="http://discord.gg/tocu" target="_blank"><i class="fab fa-discord"></i> DISCORD</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> HƯỚNG DẪN</a></li>
+            <li><a href="#"><i class="fas fa-headset"></i> HỖ TRỢ</a></li>
         </ul>
-    </div>
 
-    <div class="discord-box">
-        <iframe src="https://discord.com/widget?id=873860011518996480&theme=dark" 
-                width="350" 
-                height="400" 
-                allowtransparency="true" 
-                frameborder="0" 
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-        </iframe>
-    </div>
+        <div class="logoarea">
+            <center>
+                <img src="IMG/Logo.png" alt="Logo Tổ Cú">
+                <h1>Chào mừng Bạn đến với <span style="color: #f1c40f;">Lũng Cú</span></h1>
+            </center>
+        </div>
 
-</div>
-        <center>
-    <a href="https://discord.gg/tocu" target="_blank">
-        <img src="https://discordapp.com/api/guilds/873860011518996480/widget.png?style=banner2" alt="Discord Tổ Cú">
-    </a>
-</center>
+        <div class="main-content" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 30px; margin-top: 50px; padding: 0 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+            
+            <div class="server-status-box glass-card" style="flex: 1; min-width: 350px;">
+                <h3 style="color: #fff; margin-bottom: 25px; border-bottom: 2px solid #2ecc71; padding-bottom: 10px;">
+                    <i class="fas fa-server"></i> TRẠNG THÁI
+                </h3>
+                <ul class="stats" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 25px;">
+                        <p style="font-size: 1.3rem; color: white;">
+                            <i class="fas fa-users" style="color: #2ecc71;"></i> 
+                            <b>NGƯỜI CHƠI:</b> <span class="players" style="color: #2ecc71; font-weight: bold; font-size: 1.5rem;">0</span>
+                        </p>
+                    </li>
+                    <li class="copyIP" data-clipboard-text="play.tocu.top" style="border: 2px dashed rgba(241, 196, 15, 0.5); padding: 15px; border-radius: 10px;">
+                        <p style="font-size: 1.1rem; color: white; margin-bottom: 5px;">
+                            <i class="fas fa-fingerprint" style="color: #f1c40f;"></i> 
+                            <b>IP SERVER:</b> <span class="serverip" style="color: #f1c40f; font-weight: bold;">****.TOCU.TOP</span>
+                        </p>
+                        <small style="color: #2ecc71;"><i class="fas fa-mouse-pointer"></i> Click để copy địa chỉ nhen!</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="discord-box glass-card" style="flex: 1; min-width: 350px; display: flex; flex-direction: column; align-items: center;">
+                <h3 style="color: #fff; margin-bottom: 20px;">
+                    <i class="fab fa-discord"></i> CỘNG ĐỒNG TỔ CÚ
+                </h3>
+                <iframe src="https://discord.com/widget?id=873860011518996480&theme=dark" 
+                        width="100%" 
+                        height="350" 
+                        allowtransparency="true" 
+                        frameborder="0" 
+                        style="border-radius: 10px;"
+                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+                </iframe>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 50px; padding: 20px;">
+            <center>
+                <p style="color: #fff; margin-bottom: 15px; opacity: 0.7;">— THAM GIA VỚI CHÚNG TÔI —</p>
+                <a href="https://discord.gg/tocu" target="_blank">
+                    <img src="https://discordapp.com/api/guilds/873860011518996480/widget.png?style=banner2" alt="Discord Tổ Cú" style="border-radius: 10px; max-width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                </a>
+            </center>
+        </div>
+
+        <footer style="text-align: center; margin-top: 50px; padding: 20px; opacity: 0.6;">
+    <p>© 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b> for the Owl Nest 🦉</p>
+</footer>
+    </div>
 </body>
-
-
 </html>
-
-
-
-
-
-
-
-
-
-
