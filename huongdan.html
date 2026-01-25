@@ -3,66 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng dẫn | Lũng Cú - Server dành riêng cho member Tổ Cú</title>
+    <title>Wiki & Hướng dẫn | Lũng Cú - Tổ Cú Server</title>
     <link rel="icon" type="image/png" href="IMG/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
+        
         body, html {
-    min-height: 100vh; /* Đảm bảo chiều cao luôn phủ hết màn hình */
-    margin: 0;
-    font-family: 'Be Vietnam Pro', sans-serif !important;
-    color: white;
-    /* Thêm màu nền đen dự phòng nếu ảnh lỗi thì vẫn thấy chữ trắng */
-    background-color: #1a1a1a; 
-    /* Cách viết gộp chuẩn */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('IMG/bck.png') no-repeat center center fixed;
-    background-size: cover;
-}
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            color: white;
+            background-color: #1a1a1a; 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('IMG/bck.png') no-repeat center center fixed;
+            background-size: cover;
+            scroll-behavior: smooth;
+        }
 
-        /* --- NAVBAR (Giữ nguyên từ Index) --- */
+        /* --- NAVBAR --- */
         .navbar {
             display: flex; justify-content: center; list-style: none;
-            padding: 2vh; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100;
+            padding: 2vh; background: rgba(0,0,0,0.85); position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .navbar li { margin: 0 15px; }
         .navbar a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
         .navbar a:hover { color: #f1c40f; }
 
-        /* Logo Area */
-        .logoarea { margin-top: 2vh; z-index: 10; text-align: center; }
-        .logoarea img { max-height: 18vh; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
-        .logoarea h1 { color: #fff; font-size: 1.5rem; margin-top: 10px; text-transform: uppercase; }
-        
-        /* --- CONTENT AREA (Cho phép cuộn) --- */
-        .container {
-            max-width: 900px; margin: 50px auto; padding: 20px; z-index: 10; position: relative;
-        }
+        .logoarea { margin-top: 4vh; text-align: center; z-index: 10; position: relative; }
+        .logoarea img { max-height: 15vh; filter: drop-shadow(0 0 15px rgba(48, 184, 14, 0.4)); }
+        .logoarea h1 { font-size: 2rem; margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- CONTAINER & WIKI BOX --- */
+        .container { max-width: 850px; margin: 40px auto; padding: 20px; z-index: 10; position: relative; }
 
         .guide-box {
-            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
-            padding: 40px; line-height: 1.8;
+            background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 25px;
+            padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h2 { color: #f1c40f; border-bottom: 2px solid #2ecc71; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
-        h3 { color: #2ecc71; margin: 25px 0 10px 0; }
-        p { margin-bottom: 15px; opacity: 0.9; }
+        h2 { color: #f1c40f; font-size: 1.8rem; margin-bottom: 25px; text-align: center; text-transform: uppercase; }
+
+        /* --- ACCORDION WIKI STYLE --- */
+        .wiki-section { margin-bottom: 15px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         
-        .step-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #f1c40f; }
-
-        /* Lá rụng */
-        #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .leaf { position: absolute; color: #2ecc71; opacity: 0.5; animation: fall linear infinite; }
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        .wiki-header {
+            background: rgba(46, 204, 113, 0.15); padding: 18px 25px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 700; border-left: 5px solid #2ecc71; font-size: 1.1rem;
         }
+        .wiki-header:hover { background: rgba(46, 204, 113, 0.25); }
+        
+        .wiki-content {
+            max-height: 0; overflow: hidden; background: rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .wiki-content-inner { padding: 25px; line-height: 1.8; color: #ddd; }
 
-        footer { text-align: center; padding: 30px; opacity: 0.6; font-size: 0.8rem; }
+        .wiki-section.active .wiki-content { max-height: 1000px; }
+        .wiki-section.active .wiki-header { background: rgba(46, 204, 113, 0.3); color: #f1c40f; }
+        .wiki-section.active .wiki-header i { transform: rotate(180deg); color: #f1c40f; }
+
+        code { background: #e74c3c; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: white; }
+        .highlight { color: #f1c40f; font-weight: bold; }
+
+        /* Lá rụng hiệu ứng */
+        #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .leaf { position: absolute; color: #2ecc71; opacity: 0.4; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+        footer { text-align: center; padding: 40px; opacity: 0.7; font-size: 0.85rem; }
+        footer a { color: #2ecc71; text-decoration: none; border-bottom: 1px solid transparent; }
+        footer a:hover { border-bottom: 1px solid #2ecc71; }
     </style>
 </head>
 <body>
@@ -71,52 +87,105 @@
     <nav>
         <ul class="navbar">
             <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
-            <li><a href="huongdan.html" style="color: #f1c40f;"><i class="fas fa-book"></i> Hướng Dẫn</a></li>
-            <li><a href="#"><i class="fas fa-headset"></i> Hỗ Trợ</a></li>
+            <li><a href="huongdan.html" style="color: #f1c40f;"><i class="fas fa-book-open"></i> Hướng Dẫn</a></li>
+            <li><a href="https://discord.gg/tocu" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
         </ul>
     </nav>
+
     <div class="logoarea">
-            <img src="IMG/logo.gif" alt="Logo">
-            <h1>Server <span style="color: #30b80efa;">Minecraft</span> dành riêng cho member Tổ Cú</h1>
-        </div>
+        <img src="IMG/logo.gif" alt="Logo Lũng Cú">
+        <h1>BÍ KÍP <span style="color: #2ecc71;">SINH TỒN</span></h1>
+    </div>
+
     <div class="container">
         <div class="guide-box">
-            <h2><i class="fas fa-info-circle"></i> Hướng dẫn tham gia Lũng Cú</h2>
+            <h2><i class="fas fa-scroll"></i> HƯỚNG DẪN & WIKI</h2>
             
-            <p>Chào mừng anh em đã đến với vương quốc của Cú. Để có trải nghiệm tốt nhất, hãy làm theo các bước dưới đây nhen!</p>
-
-            <h3>1. Thông tin máy chủ</h3>
-            <div class="step-box">
-                <p><b>Địa chỉ IP:</b> <span style="color: #f1c40f;">****.tocu.top</span></p>
-                <p><b>Phiên bản:</b> 1.20.1 - 1.20.4 (Khuyến khích dùng 1.20.1)</p>
+            <div class="wiki-section active">
+                <div class="wiki-header">
+                    <span><i class="fas fa-server"></i> 1. Kết nối vào máy chủ</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="wiki-content">
+                    <div class="wiki-content-inner">
+                        <p>Địa chỉ IP: <span class="highlight">****.tocu.top</span></p>
+                        <p>Phiên bản: <span class="highlight">1.20.1 - 1.20.4</span></p>
+                        <hr style="margin: 15px 0; opacity: 0.1;">
+                        <p><b>Bước 1:</b> Mở Launcher -> Chọn Multiplayer -> Add Server.</p>
+                        <p><b>Bước 2:</b> Nhập IP và nhấn Done để teleport vào Lũng Cú.</p>
+                    </div>
+                </div>
             </div>
 
-            <h3>2. Cách tham gia</h3>
-            <div class="step-box">
-                <p><b>Bước 1:</b> Mở Minecraft Launcher và chọn phiên bản phù hợp.</p>
-                <p><b>Bước 2:</b> Chọn "Multiplayer" (Chơi mạng) -> "Add Server" (Thêm máy chủ).</p>
-                <p><b>Bước 3:</b> Nhập tên "Lũng Cú" và địa chỉ IP ở trên.</p>
-                <p><b>Bước 4:</b> Nhấn "Done" và bắt đầu quẩy thôi!</p>
+            <div class="wiki-section">
+                <div class="wiki-header">
+                    <span><i class="fas fa-terminal"></i> 2. Các lệnh cần nhớ</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="wiki-content">
+                    <div class="wiki-content-inner">
+                        <p><span class="highlight">Đăng ký:</span> <code>/register [mật-khẩu] [nhập-lại]</code></p>
+                        <p><span class="highlight">Đăng nhập:</span> <code>/login [mật-khẩu]</code></p>
+                        <p><span class="highlight">Về thành:</span> <code>/spawn</code></p>
+                        <p><span class="highlight">Nhà riêng:</span> <code>/sethome</code> và <code>/home</code></p>
+                    </div>
+                </div>
             </div>
 
-            <h3>3. Luật của Tổ Cú</h3>
-            <ul style="margin-left: 20px;">
-                <li>Không sử dụng hack/cheat dưới mọi hình thức.</li>
-                <li>Tôn trọng các Cú khác trong cộng đồng.</li>
-                <li>Không phá hoại công trình (Griefing) của người khác.</li>
-                <li>Tham gia Discord để cập nhật tin tức mới nhất!</li>
-            </ul>
+            <div class="wiki-section">
+                <div class="wiki-header">
+                    <span><i class="fas fa-shield-alt"></i> 3. Bảo vệ tài sản (Claim)</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="wiki-content">
+                    <div class="wiki-content-inner">
+                        <p>Để bảo vệ nhà khỏi bị phá hoại (griefing), anh em sử dụng <b>Xẻng Vàng</b>:</p>
+                        <p>1. Cầm xẻng vàng click chuột phải vào góc thứ nhất.</p>
+                        <p>2. Chạy sang góc đối diện và click chuột phải thêm lần nữa.</p>
+                        <p><i class="fas fa-exclamation-triangle" style="color: #f1c40f;"></i> Lưu ý: Diện tích claim phụ thuộc vào thời gian anh em chơi trên server.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wiki-section">
+                <div class="wiki-header">
+                    <span><i class="fas fa-gavel"></i> 4. Luật Lệ Lũng Cú</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="wiki-content">
+                    <div class="wiki-content-inner">
+                        <ul style="list-style: none;">
+                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Tuyệt đối không Hack/Cheat/Xray.</li>
+                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Không phá hoại công trình người khác.</li>
+                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Cư xử văn minh, không toxic.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-     <footer>
-    <p>
-        © 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b>. 
-        | <a href="dieukhoan.html" style="color: #888; text-decoration: underline;">Điều khoản & Miễn trừ</a>
-    </p>
-</footer>
+    <footer>
+        <p>© 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b></p>
+        <p style="margin-top: 10px;">
+            <a href="index.html">Trang chủ</a> | 
+            <a href="dieukhoan.html">Điều khoản & Miễn trừ trách nhiệm</a>
+        </p>
+    </footer>
 
     <script>
+        // Hiệu ứng Accordion cho Wiki
+        document.querySelectorAll('.wiki-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                // Đóng các mục khác nếu muốn (Optional)
+                // document.querySelectorAll('.wiki-section').forEach(s => s.classList.remove('active'));
+                section.classList.toggle('active');
+            });
+        });
+
+        // Hiệu ứng lá rụng
         const container = document.getElementById('leafContainer');
         const leaves = ['🍃', '🍂', '🌿'];
         function createLeaf() {
@@ -125,11 +194,11 @@
             leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
             leaf.style.left = Math.random() * 100 + 'vw';
             leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
-            leaf.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            leaf.style.animationDuration = (Math.random() * 5 + 8) + 's';
             container.appendChild(leaf);
-            setTimeout(() => { leaf.remove(); }, 10000);
+            setTimeout(() => { leaf.remove(); }, 12000);
         }
-        setInterval(createLeaf, 900);
+        setInterval(createLeaf, 1000);
     </script>
 </body>
 </html>
