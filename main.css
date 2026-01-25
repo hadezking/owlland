@@ -1,5 +1,5 @@
 /* ALL PAGES CSS */
-@import url('https://fonts.googleapis.com/css?family=Passion+One&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Passion+One&display=swap');*/
 
 html,
 body {
@@ -39,7 +39,7 @@ h1, h2, h3 {
         background-color: transparent;
         text-align: center;
         text-align: right;
-        font-family: 'Passion One', cursive;
+        font-family: 'Be Vietnam Pro', cursive;
 }
 
 .navbar li {
@@ -92,7 +92,7 @@ h1, h2, h3 {
 
 .logoarea h1 {
         margin-top: 75px;
-        font-family: 'Passion One', cursive;
+        font-family: 'Be Vietnam Pro', cursive;
         text-transform: uppercase;
         color: #292828da;
         padding: 10px;
@@ -138,7 +138,7 @@ h1, h2, h3 {
         padding-top: auto;
         height: auto;
         color: rgb(53, 53, 53);
-        font-family: 'Passion One', cursive;
+        font-family: 'Be Vietnam Pro', cursive;
         font-size: 22px;
         background-color: rgba(231, 200, 21, 0.286);
         border: solid 3px rgba(231, 200, 21, 0.286);
@@ -154,7 +154,8 @@ h1, h2, h3 {
 
 .ajs-message {
         background-color: rgba(231, 200, 21, 0.786) !important;
-        font-family: 'Passion One', cursive;
+        font-family: 'Be Vietnam Pro', cursive;
         font-size: 18px;
 
 }
+
