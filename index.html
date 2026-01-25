@@ -53,4 +53,119 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 2
+            padding: 20px;
+            z-index: 10;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex; justify-content: center; list-style: none;
+            padding: 2vh; background: rgba(0,0,0,0.6); z-index: 20;
+        }
+        .navbar li { margin: 0 15px; }
+        .navbar a { 
+            color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .navbar a:hover { color: #f1c40f; }
+
+        /* Logo Area */
+        .logoarea { margin-top: 2vh; z-index: 10; text-align: center; }
+        .logoarea img { max-height: 18vh; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
+        .logoarea h1 { color: #fff; font-size: 2rem; margin-top: 10px; text-transform: uppercase; }
+
+        /* Main Content co giãn theo màn hình */
+        .main-content {
+            display: flex; justify-content: center; align-items: center;
+            gap: 30px; padding: 0 5vw; flex: 1; z-index: 10;
+        }
+        .server-status-box, .discord-box { flex: 1; max-width: 400px; height: 320px; display: flex; flex-direction: column; justify-content: center; }
+
+        /* Copy IP Button */
+        .copyIP {
+            border: 2px dashed #f1c40f; padding: 15px; border-radius: 10px;
+            cursor: pointer; text-align: center; margin-top: 15px;
+        }
+        .copyIP:hover { background: rgba(241, 196, 15, 0.1); }
+
+        /* Tooltip Hadez */
+        .hadez-tooltip { color: #f1c40f; cursor: help; font-weight: bold; position: relative; }
+        .hadez-tooltip:hover:after {
+            content: attr(data-tooltip); position: absolute; bottom: 130%; left: 50%;
+            transform: translateX(-50%); background: #2ecc71; color: #000;
+            padding: 5px 12px; border-radius: 6px; font-size: 0.7rem; white-space: nowrap;
+        }
+
+        footer { padding: 2vh; background: rgba(0,0,0,0.7); color: #777; text-align: center; z-index: 20; font-size: 0.8rem; }
+
+        /* Font Awesome Fix */
+        .fas, .fab { font-family: "Font Awesome 5 Free" !important; font-weight: 900 !important; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; overflow-y: auto; padding: 20px; }
+            .discord-box { display: none; } /* Mobile ẩn Discord cho gọn */
+            .logoarea h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="home">
+        <div id="leafContainer"></div>
+
+        <nav>
+            <ul class="navbar">
+                <li><a href="#"><i class="fas fa-home"></i> HOME</a></li>
+                <li><a href="http://discord.gg/tocu" target="_blank"><i class="fab fa-discord"></i> DISCORD</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> GUIDE</a></li>
+                <li><a href="#"><i class="fas fa-headset"></i> SUPPORT</a></li>
+            </ul>
+        </nav>
+
+        <div class="logoarea">
+            <img src="IMG/Logo.png" alt="Logo">
+            <h1>Chào mừng đến với <span style="color: #f1c40f;">Lũng Cú</span></h1>
+        </div>
+
+        <div class="main-content">
+            <div class="server-status-box glass-card">
+                <h3 style="color: #2ecc71; margin-bottom: 20px; text-align: center;"><i class="fas fa-server"></i> SERVER STATUS</h3>
+                <p style="color: #fff; font-size: 1.2rem; text-align: center; margin-bottom: 20px;">
+                    ONLINE: <span class="players" style="color: #2ecc71; font-weight: bold;">0</span>
+                </p>
+                <div class="copyIP" data-clipboard-text="play.tocu.top">
+                    <p style="color: #fff; font-size: 0.9rem;">IP: <span style="color: #f1c40f; font-weight: bold;">PLAY.TOCU.TOP</span></p>
+                    <small style="color: #888;">(Click to Copy)</small>
+                </div>
+            </div>
+
+            <div class="discord-box glass-card">
+                <iframe src="https://discord.com/widget?id=873860011518996480&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" style="border-radius: 10px;"></iframe>
+            </div>
+        </div>
+
+        <footer>
+            <p>Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <span class="hadez-tooltip" data-tooltip="Chủ server Tổ Cú nhen! 🦉">Hadez</span> for the Owl Nest 🦉</p>
+        </footer>
+    </div>
+
+    <script>
+        const container = document.getElementById('leafContainer');
+        const leaves = ['🍃', '🍂', '🌿'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            leaf.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            container.appendChild(leaf);
+            setTimeout(() => { leaf.remove(); }, 10000);
+        }
+        setInterval(createLeaf, 800);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script>new ClipboardJS('.copyIP');</script>
+</body>
+</html>
