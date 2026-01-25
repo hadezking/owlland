@@ -10,11 +10,17 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
         body, html {
-            min-height: 100%;
-            font-family: 'Be Vietnam Pro', sans-serif !important;
-            color: white;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG/bck.png') no-repeat center center fixed/cover;
-        }
+    min-height: 100vh; /* Đảm bảo chiều cao luôn phủ hết màn hình */
+    margin: 0;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    color: white;
+    /* Thêm màu nền đen dự phòng nếu ảnh lỗi thì vẫn thấy chữ trắng */
+    background-color: #1a1a1a; 
+    /* Cách viết gộp chuẩn */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('IMG/bck.png') no-repeat center center fixed;
+    background-size: cover;
+}
 
         .navbar {
             display: flex; justify-content: center; list-style: none;
