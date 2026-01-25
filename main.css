@@ -9,6 +9,12 @@ body {
         padding: 0;
         background-image: url('IMG/bck.png');
         background-size: cover;
+        font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700; /* Làm tiêu đề đậm lên cho ngầu */
 }
 
 ::-webkit-scrollbar {
@@ -150,4 +156,5 @@ body {
         background-color: rgba(231, 200, 21, 0.786) !important;
         font-family: 'Passion One', cursive;
         font-size: 18px;
+
 }
