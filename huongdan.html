@@ -10,12 +10,17 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
         body, html {
-            min-height: 100%;
-            font-family: 'Be Vietnam Pro', sans-serif !important;
-            color: white;
-            /* Dùng lại background của anh */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG/bck.png') no-repeat center center fixed/cover;
-        }
+    min-height: 100vh; /* Đảm bảo chiều cao luôn phủ hết màn hình */
+    margin: 0;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    color: white;
+    /* Thêm màu nền đen dự phòng nếu ảnh lỗi thì vẫn thấy chữ trắng */
+    background-color: #1a1a1a; 
+    /* Cách viết gộp chuẩn */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('IMG/bck.png') no-repeat center center fixed;
+    background-size: cover;
+}
 
         /* --- NAVBAR (Giữ nguyên từ Index) --- */
         .navbar {
@@ -96,9 +101,12 @@
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 Lũng Cú Server. Crafted with ❤️ by Hadez for the Owl Nest 🦉</p>
-    </footer>
+     <footer>
+    <p>
+        © 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b>. 
+        | <a href="dieukhoan.html" style="color: #888; text-decoration: underline;">Điều khoản & Miễn trừ</a>
+    </p>
+</footer>
 
     <script>
         const container = document.getElementById('leafContainer');
