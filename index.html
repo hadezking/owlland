@@ -20,15 +20,17 @@
             background-color: #000;
         }
 
-        #home {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Căn đều các phần từ trên xuống dưới */
-            /* DÙNG BACKGROUND CÓ SẴN CỦA ANH */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG/Background.png') no-repeat center center/cover;
-            position: relative;
-        }
+#home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Thêm màu nền xanh rừng để nếu mất ảnh web vẫn hiện chữ */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('IMG/Background.png') no-repeat center center/cover,
+                #1a2a1a; /* Màu xanh rừng dự phòng */
+    position: relative;
+}
 
         /* --- HIỆU ỨNG LÁ RỤNG --- */
         #leafContainer {
@@ -169,3 +171,4 @@
     <script>new ClipboardJS('.copyIP');</script>
 </body>
 </html>
+
