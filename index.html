@@ -9,17 +9,23 @@
         <title>Lũng Cú | Vùng đất của Cú</title>
         <link rel="stylesheet" href="main.css">
         <style>
-        /* Ép font chạy 100% tiếng Việt */
-        html, body, * {
-            font-family: 'Be Vietnam Pro', sans-serif !important;
-        }
-    </style>
+    /* Ép font cho toàn bộ trang */
+    body, h1, h2, h3, p, span, a, .typer {
+        font-family: 'Be Vietnam Pro', sans-serif !important;
+    }
+
+    /* CHẶN không cho font chữ đè lên Font Awesome (icon) */
+    .fas, .fab, .far, .fa {
+        font-family: "Font Awesome 5 Free" !important; /* Giữ nguyên font của icon */
+        font-weight: 900 !important; /* Đảm bảo icon hiện rõ */
+    }
+</style>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
                 integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
                 crossorigin="anonymous">
         <script src="JS/script.js"></script>
         <script src="https://mcapi.us/scripts/minecraft.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/css/alertify.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/alertify.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 </head>
@@ -89,6 +95,7 @@
 
 
 </html>
+
 
 
 
