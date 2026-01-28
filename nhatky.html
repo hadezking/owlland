@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhật Ký & Tin Tức | Owl Land</title>
+    <title>Biên Niên Sử | Tổ Cú Community</title>
     <link rel="icon" type="image/png" href="IMG/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -17,7 +17,7 @@
             font-family: 'Be Vietnam Pro', sans-serif !important;
             color: white;
             background-color: #1a1a1a; 
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+            background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.92)), 
                         url('IMG/bck.png') no-repeat center center fixed;
             background-size: cover;
         }
@@ -32,59 +32,57 @@
         .navbar a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
         .navbar a:hover { color: #f1c40f; }
 
-        .header-area { margin-top: 5vh; text-align: center; }
-        .header-area h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; color: #f1c40f; }
-        .header-area p { opacity: 0.7; margin-top: 10px; font-style: italic; }
+        .header-area { margin-top: 5vh; text-align: center; padding: 0 20px; }
+        .header-area h1 { font-size: 2.8rem; text-transform: uppercase; letter-spacing: 5px; color: #f1c40f; text-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
+        .header-area p { opacity: 0.8; margin-top: 15px; font-size: 1.1rem; color: #2ecc71; font-weight: bold; }
 
-        /* --- TIMELINE SECTION --- */
-        .container { max-width: 800px; margin: 50px auto; padding: 0 20px; position: relative; }
+        /* --- TIMELINE --- */
+        .container { max-width: 950px; margin: 60px auto; padding: 0 20px; position: relative; }
         
-        /* Đường kẻ dọc giữa */
         .container::after {
-            content: ''; position: absolute; width: 2px; background: rgba(46, 204, 113, 0.3);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+            content: ''; position: absolute; width: 3px; background: linear-gradient(to bottom, #7f8c8d, #2ecc71, #f1c40f);
+            top: 0; bottom: 0; left: 50%; margin-left: -1.5px;
         }
 
-        .news-item {
-            padding: 10px 40px; position: relative; background: transparent; width: 50%;
-        }
+        .news-item { padding: 25px 50px; position: relative; width: 50%; }
 
-        /* Nút chấm trên đường kẻ */
         .news-item::after {
-            content: ''; position: absolute; width: 16px; height: 16px; right: -8px;
-            background-color: #2ecc71; border: 4px solid #1a1a1a; top: 15px;
-            border-radius: 50%; z-index: 1; box-shadow: 0 0 10px #2ecc71;
+            content: ''; position: absolute; width: 22px; height: 22px; right: -11px;
+            background-color: #1a1a1a; border: 4px solid #f1c40f; top: 30px;
+            border-radius: 50%; z-index: 1; box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
         }
 
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
-        .right::after { left: -8px; }
+        .right::after { left: -11px; }
 
         .content {
-            padding: 20px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
-            border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .date { color: #2ecc71; font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 5px; }
+        .date { color: #f1c40f; font-weight: 800; font-size: 1rem; margin-bottom: 8px; display: block; }
         .tag { 
-            display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; 
-            text-transform: uppercase; margin-bottom: 10px; font-weight: bold;
+            display: inline-block; padding: 3px 10px; border-radius: 5px; font-size: 0.7rem; 
+            text-transform: uppercase; margin-bottom: 12px; font-weight: bold; letter-spacing: 1px;
         }
-        .tag-update { background: #3498db; }
-        .tag-event { background: #e67e22; }
-        .tag-web { background: #9b59b6; }
+        .tag-now { background: #2ecc71; color: #1a1a1a; }
+        .tag-event { background: #e74c3c; color: white; }
+        .tag-history { background: #3498db; color: white; }
+        .tag-origin { background: #7f8c8d; color: white; }
 
-        .news-item h3 { margin-bottom: 10px; color: #fff; font-size: 1.2rem; }
-        .news-item p { font-size: 0.9rem; line-height: 1.6; color: #ccc; }
+        .news-item h3 { margin-bottom: 12px; color: #fff; font-size: 1.3rem; text-transform: uppercase; }
+        .news-item p { font-size: 0.95rem; line-height: 1.7; color: #bbb; }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 750px) {
             .container::after { left: 31px; }
             .news-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
-            .news-item::after { left: 23px; }
+            .news-item::after { left: 20px; }
             .right { left: 0%; }
         }
 
-        footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px; opacity: 0.6; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
@@ -92,48 +90,86 @@
     <nav>
         <ul class="navbar">
             <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="tintuc.html" style="color: #f1c40f;">Tin Tức</a></li>
+            <li><a href="tintuc.html" style="color: #f1c40f;">Biên Niên Sử</a></li>
             <li><a href="huongdan.html">Hướng Dẫn</a></li>
             <li><a href="https://discord.gg/tocu" target="_blank">Discord</a></li>
         </ul>
     </nav>
 
     <div class="header-area">
-        <h1>NHẬT KÝ <span style="color: #2ecc71;">OWL LAND</span></h1>
-        <p>Nơi lưu giữ những bước chân đầu tiên</p>
+        <h1>BIÊN NIÊN SỬ <span style="color: #2ecc71;">TỔ CÚ</span></h1>
+        <p>"Hành trình từ bóng tối bước ra ánh sáng"</p>
     </div>
 
     <div class="container">
+
         <div class="news-item left">
-            <div class="content">
-                <span class="date">28 Tháng 01, 2026</span>
-                <span class="tag tag-web">Website</span>
-                <h3>🌐 Ra mắt tocu.top</h3>
-                <p>Chính thức đưa website Tổ Cú đi vào hoạt động. Tích hợp Wiki, bộ luật mới và tối ưu SEO toàn diện.</p>
+            <div class="content" style="border: 1px solid #2ecc71; box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);">
+                <span class="date">Hiện tại - 2026</span>
+                <span class="tag tag-now">Kỷ nguyên Minecraft</span>
+                <h3>🦉 Owl Land SMP</h3>
+                <p>Khởi động vùng đất mới trên nền tảng Minecraft. Nơi anh em Tổ Cú cùng nhau xây dựng, sinh tồn và viết tiếp những chương mới đầy hứa hẹn.</p>
             </div>
         </div>
 
         <div class="news-item right">
             <div class="content">
-                <span class="date">25 Tháng 01, 2026</span>
-                <span class="tag tag-update">Server</span>
-                <h3>🛠 Làm tổ</h3>
-                <p>Tìm kiếm vùng đất phù hợp để làm tổ</p>
+                <span class="date">10 - 11.08.2025</span>
+                <span class="tag tag-event">Sự kiện đặc biệt</span>
+                <h3>🎂 Offline Sinh Nhật 1 Tuổi</h3>
+                <p>Cột mốc lịch sử khi những chiếc Avatar bước ra đời thực. Buổi Offline ấm cúng đánh dấu tròn 1 năm gắn bó cùng nhau.</p>
             </div>
         </div>
 
         <div class="news-item left">
             <div class="content">
-                <span class="date">20 Tháng 01, 2026</span>
-                <span class="tag tag-event">Sự kiện</span>
-                <h3>🔥 Khởi động Owl Land</h3>
-                <p>Những viên gạch đầu tiên đã được đặt xuống!</p>
+                <span class="date">23.03.2025</span>
+                <span class="tag tag-history">Expansion</span>
+                <h3>⚔️ Server Conan Exiles</h3>
+                <p>Khai mở vùng đất hoang dã. Những trận chiến sinh tồn khắc nghiệt</p>
             </div>
         </div>
+
+        <div class="news-item right">
+            <div class="content">
+                <span class="date">18.11.2024</span>
+                <span class="tag tag-history">Roleplay Era</span>
+                <h3>🚗 Owl City chính thức mở cửa</h3>
+                <p>Đưa Tổ Cú vào thế giới GTA 5 Roleplay. Owl City không chỉ là một server, đó là một thành phố của những kỉ niệm và những vai diễn để đời.</p>
+            </div>
+        </div>
+
+        <div class="news-item left">
+            <div class="content">
+                <span class="date">27.09.2024</span>
+                <span class="tag tag-history">Chill & Grow</span>
+                <h3>🌱 Khai trương Stardew Valley</h3>
+                <p>Mảnh vườn Pelican đầu tiên đón chào những nông dân Tổ Cú. Giai đoạn của sự bình yên và kết nối tâm giao.</p>
+            </div>
+        </div>
+
+        <div class="news-item right">
+            <div class="content" style="border: 1px solid #f1c40f;">
+                <span class="date">08.08.2024</span>
+                <span class="tag tag-event">Big Milestone</span>
+                <h3>🔓 Tổ Cú mở cửa</h3>
+                <p>Lần đầu tiên Tổ Cú chính thức mở cửa đón thành viên mới gia nhập, đặt nền móng cho một cộng đồng đa bản sắc.</p>
+            </div>
+        </div>
+
+        <div class="news-item left">
+            <div class="content">
+                <span class="date">08.08.2021</span>
+                <span class="tag tag-origin">The Beginning</span>
+                <h3>🌑 Tổ Cú xuất hiện</h3>
+                <p>Điểm khởi đầu thầm lặng của một lý tưởng. Những hạt mầm đầu tiên được gieo xuống trong bóng tối, chờ ngày vươn mình.</p>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        <p>© 2026 Owl Land - Crafted by Hadez King</p>
+        <p>© 2021 - 2026 Tổ Cú Community.</p>
     </footer>
 
 </body>
