@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki & Hướng dẫn | Lũng Cú - Tổ Cú Server</title>
+    <title>Wiki & Hướng dẫn | Owl Land - Tổ Cú Server</title>
+    <meta name="title" content="Tổ Cú - Cộng Đồng Minecraft & Discord Nội Bộ">
+    <meta name="description" content="Khám phá Owl Land - Server Minecraft sinh tồn dành riêng cho thành viên Tổ Cú. Nơi hội tụ của những tâm hồn đồng điệu, văn minh và đầy nhiệt huyết.">
+    <meta name="keywords" content="Tổ Cú, Owl Land, Minecraft Việt Nam, Discord Tổ Cú, Minecraft Survival, Server Minecraft không toxic, Minecraft cho người đi làm, Cộng đồng Cú Đêm, Minecraft SMP Việt Nam, Cú Lỏ Bot">
+    <meta name="author" content="Hadez">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tocu.top/">
+    <meta property="og:title" content="Chào mừng bạn đến với Owl Land 🦉">
+    <meta property="og:description" content="Owl Land đang chờ đón những cư dân mới. Gia nhập ngay để khám phá thế giới Minecraft tuyệt vời này!">
+    <meta property="og:image" content="https://tocu.top/IMG/thumbnail.png"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tocu.top/">
+    <meta property="twitter:title" content="Chào mừng bạn đến với Owl Land 🦉">
+    <meta property="twitter:description" content="Owl Land đang chờ đón những cư dân mới. Gia nhập ngay để khám phá thế giới Minecraft tuyệt vời này!">
+    <meta property="twitter:image" content="https://tocu.top/IMG/thumbnail.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
     <link rel="icon" type="image/png" href="IMG/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -63,15 +81,16 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .wiki-content-inner { padding: 25px; line-height: 1.8; color: #ddd; }
+        .wiki-content-inner h3 { color: #2ecc71; margin: 15px 0 10px 0; font-size: 1rem; text-transform: uppercase; }
+        .wiki-content-inner ul { list-style: disc; margin-left: 20px; margin-bottom: 10px; }
 
-        .wiki-section.active .wiki-content { max-height: 1000px; }
+        .wiki-section.active .wiki-content { max-height: 2000px; } /* Tăng max-height để chứa nội dung luật dài */
         .wiki-section.active .wiki-header { background: rgba(46, 204, 113, 0.3); color: #f1c40f; }
         .wiki-section.active .wiki-header i { transform: rotate(180deg); color: #f1c40f; }
 
         code { background: #e74c3c; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: white; }
         .highlight { color: #f1c40f; font-weight: bold; }
 
-        /* Lá rụng hiệu ứng */
         #leafContainer { position: fixed; top: -50px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         .leaf { position: absolute; color: #2ecc71; opacity: 0.4; animation: fall linear infinite; }
         @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
@@ -93,26 +112,50 @@
     </nav>
 
     <div class="logoarea">
-        <img src="IMG/logo.gif" alt="Logo Lũng Cú">
+        <img src="IMG/logo.gif" alt="Logo Owl Land">
         <h1>BÍ KÍP <span style="color: #2ecc71;">SINH TỒN</span></h1>
     </div>
 
     <div class="container">
         <div class="guide-box">
             <h2><i class="fas fa-scroll"></i> HƯỚNG DẪN & WIKI</h2>
-            
+
             <div class="wiki-section active">
                 <div class="wiki-header">
-                    <span><i class="fas fa-server"></i> 1. Kết nối vào máy chủ</span>
+                    <span><i class="fas fa-gavel"></i> 1. Nội quy Owl Land</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="wiki-content">
                     <div class="wiki-content-inner">
-                        <p>Địa chỉ IP: <span class="highlight">****.tocu.top</span></p>
-                        <p>Phiên bản: <span class="highlight">1.20.1 - 1.20.4</span></p>
-                        <hr style="margin: 15px 0; opacity: 0.1;">
-                        <p><b>Bước 1:</b> Mở Launcher -> Chọn Multiplayer -> Add Server.</p>
-                        <p><b>Bước 2:</b> Nhập IP và nhấn Done để teleport vào Lũng Cú.</p>
+                        [cite_start]<p>Owl Land hướng đến xây dựng cộng đồng game thủ lành mạnh và thân thiện dành cho người chơi Minecraft. [cite: 1, 2] [cite_start]Mọi thành viên bắt buộc tuân thủ các điều khoản sau: [cite: 3]</p>
+                        
+                        <h3>I. Danh tính & Hình ảnh</h3>
+                        <ul>
+                            [cite_start]<li>Không đặt tên nhân vật vô văn hóa, xúc phạm người khác hoặc tên máy chủ khác. [cite: 4, 5]</li>
+                            [cite_start]<li>Không sử dụng skin nhân vật đồi trụy hoặc gây phản cảm. [cite: 6]</li>
+                            [cite_start]<li>Nhân vật vi phạm sẽ bị khóa tài khoản vĩnh viễn. [cite: 8]</li>
+                        </ul>
+
+                        <h3>II. Giao tiếp & Trò chuyện</h3>
+                        <ul>
+                            [cite_start]<li>Chỉ sử dụng tiếng Việt trên tần số tán gẫu chung. [cite: 10]</li>
+                            [cite_start]<li>Nghiêm cấm nói tục, chửi thề, thảo luận chính trị, tôn giáo hoặc phân biệt vùng miền. [cite: 11, 13]</li>
+                            [cite_start]<li>Người vi phạm sẽ bị cấm chat hoặc khóa tài khoản vĩnh viễn. [cite: 15]</li>
+                        </ul>
+
+                        <h3>III. Spam & Quảng cáo</h3>
+                        <ul>
+                            [cite_start]<li>Không gửi tin nhắn vô nghĩa, viết hoa quá nhiều hoặc spam ping người khác. [cite: 16, 17, 18]</li>
+                            [cite_start]<li>Tuyệt đối không lôi kéo, quảng cáo các máy chủ Discord và Minecraft khác. [cite: 22]</li>
+                            [cite_start]<li>Hành vi quảng cáo trái phép sẽ bị khóa tài khoản vĩnh viễn. [cite: 24]</li>
+                        </ul>
+
+                        <h3>IV. Gian lận & Ứng xử</h3>
+                        <ul>
+                            [cite_start]<li>Không hack, auto-click hoặc khai thác lỗi máy chủ để trục lợi. [cite: 34, 35, 37]</li>
+                            [cite_start]<li>Không trộm cắp, phá hoại công trình hoặc xây máy gây lag server. [cite: 27, 28]</li>
+                            [cite_start]<li>Hành vi gian lận sẽ bị khóa tài khoản vĩnh viễn mà không hỗ trợ khiếu nại. [cite: 38, 39]</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -139,26 +182,27 @@
                 </div>
                 <div class="wiki-content">
                     <div class="wiki-content-inner">
-                        <p>Để bảo vệ nhà khỏi bị phá hoại (griefing), anh em sử dụng <b>Xẻng Vàng</b>:</p>
+                        [cite_start]<p>Anh em bắt buộc phải claim đất để bảo vệ công trình và tài sản của mình. [cite: 46]</p>
+                        <p>Sử dụng <b>Xẻng Vàng</b> để thực hiện:</p>
                         <p>1. Cầm xẻng vàng click chuột phải vào góc thứ nhất.</p>
                         <p>2. Chạy sang góc đối diện và click chuột phải thêm lần nữa.</p>
-                        <p><i class="fas fa-exclamation-triangle" style="color: #f1c40f;"></i> Lưu ý: Diện tích claim phụ thuộc vào thời gian anh em chơi trên server.</p>
+                        [cite_start]<p><i class="fas fa-exclamation-triangle" style="color: #f1c40f;"></i> Lưu ý: Claim sẽ hết hạn và bị xóa sau 365 ngày nếu bạn không hoạt động. [cite: 49]</p>
                     </div>
                 </div>
             </div>
 
             <div class="wiki-section">
                 <div class="wiki-header">
-                    <span><i class="fas fa-gavel"></i> 4. Luật Lệ Lũng Cú</span>
+                    <span><i class="fas fa-server"></i> 4. Kết nối vào máy chủ</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="wiki-content">
                     <div class="wiki-content-inner">
-                        <ul style="list-style: none;">
-                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Tuyệt đối không Hack/Cheat/Xray.</li>
-                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Không phá hoại công trình người khác.</li>
-                            <li><i class="fas fa-check-circle" style="color: #e74c3c;"></i> Cư xử văn minh, không toxic.</li>
-                        </ul>
+                        <p>Địa chỉ IP: <span class="highlight">****.tocu.top</span></p>
+                        <p>Phiên bản: <span class="highlight">1.20.x - 1.21.x</span></p>
+                        <hr style="margin: 15px 0; opacity: 0.1;">
+                        <p><b>Bước 1:</b> Mở Launcher -> Chọn Multiplayer -> Add Server.</p>
+                        <p><b>Bước 2:</b> Nhập IP và nhấn Done để bắt đầu hành trình tại Owl Land.</p>
                     </div>
                 </div>
             </div>
@@ -167,7 +211,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Lũng Cú Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b></p>
+        <p>© 2026 Owl Land Server. Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <b>Hadez</b></p>
         <p style="margin-top: 10px;">
             <a href="index.html">Trang chủ</a> | 
             <a href="dieukhoan.html">Điều khoản & Miễn trừ trách nhiệm</a>
@@ -175,17 +219,13 @@
     </footer>
 
     <script>
-        // Hiệu ứng Accordion cho Wiki
         document.querySelectorAll('.wiki-header').forEach(header => {
             header.addEventListener('click', () => {
                 const section = header.parentElement;
-                // Đóng các mục khác nếu muốn (Optional)
-                // document.querySelectorAll('.wiki-section').forEach(s => s.classList.remove('active'));
                 section.classList.toggle('active');
             });
         });
 
-        // Hiệu ứng lá rụng
         const container = document.getElementById('leafContainer');
         const leaves = ['🍃', '🍂', '🌿'];
         function createLeaf() {
