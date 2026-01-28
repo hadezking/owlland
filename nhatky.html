@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhật Ký & Tin Tức | Owl Land</title>
+    <link rel="icon" type="image/png" href="IMG/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
+        
+        body, html {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            color: white;
+            background-color: #1a1a1a; 
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('IMG/bck.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: center; list-style: none;
+            padding: 2vh; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .navbar li { margin: 0 15px; }
+        .navbar a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+        .navbar a:hover { color: #f1c40f; }
+
+        .header-area { margin-top: 5vh; text-align: center; }
+        .header-area h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; color: #f1c40f; }
+        .header-area p { opacity: 0.7; margin-top: 10px; font-style: italic; }
+
+        /* --- TIMELINE SECTION --- */
+        .container { max-width: 800px; margin: 50px auto; padding: 0 20px; position: relative; }
+        
+        /* Đường kẻ dọc giữa */
+        .container::after {
+            content: ''; position: absolute; width: 2px; background: rgba(46, 204, 113, 0.3);
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+        }
+
+        .news-item {
+            padding: 10px 40px; position: relative; background: transparent; width: 50%;
+        }
+
+        /* Nút chấm trên đường kẻ */
+        .news-item::after {
+            content: ''; position: absolute; width: 16px; height: 16px; right: -8px;
+            background-color: #2ecc71; border: 4px solid #1a1a1a; top: 15px;
+            border-radius: 50%; z-index: 1; box-shadow: 0 0 10px #2ecc71;
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .right::after { left: -8px; }
+
+        .content {
+            padding: 20px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .date { color: #2ecc71; font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 5px; }
+        .tag { 
+            display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; 
+            text-transform: uppercase; margin-bottom: 10px; font-weight: bold;
+        }
+        .tag-update { background: #3498db; }
+        .tag-event { background: #e67e22; }
+        .tag-web { background: #9b59b6; }
+
+        .news-item h3 { margin-bottom: 10px; color: #fff; font-size: 1.2rem; }
+        .news-item p { font-size: 0.9rem; line-height: 1.6; color: #ccc; }
+
+        @media screen and (max-width: 600px) {
+            .container::after { left: 31px; }
+            .news-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .news-item::after { left: 23px; }
+            .right { left: 0%; }
+        }
+
+        footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="tintuc.html" style="color: #f1c40f;">Tin Tức</a></li>
+            <li><a href="huongdan.html">Hướng Dẫn</a></li>
+            <li><a href="https://discord.gg/tocu" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-area">
+        <h1>NHẬT KÝ <span style="color: #2ecc71;">OWL LAND</span></h1>
+        <p>Nơi lưu giữ những bước chân đầu tiên của Tổ Cú</p>
+    </div>
+
+    <div class="container">
+        <div class="news-item left">
+            <div class="content">
+                <span class="date">28 Tháng 01, 2026</span>
+                <span class="tag tag-web">Website</span>
+                <h3>🌐 Ra mắt tocu.top</h3>
+                <p>Chính thức đưa website Tổ Cú đi vào hoạt động. Tích hợp Wiki, bộ luật mới và tối ưu SEO toàn diện.</p>
+            </div>
+        </div>
+
+        <div class="news-item right">
+            <div class="content">
+                <span class="date">25 Tháng 01, 2026</span>
+                <span class="tag tag-update">Server</span>
+                <h3>🛠 Tối ưu kết nối</h3>
+                <p>Nâng cấp hệ thống Proxy giúp giảm ping cho anh em chơi Minecraft. Cập nhật mây cam bảo mật Cloudflare.</p>
+            </div>
+        </div>
+
+        <div class="news-item left">
+            <div class="content">
+                <span class="date">20 Tháng 01, 2026</span>
+                <span class="tag tag-event">Sự kiện</span>
+                <h3>🔥 Khởi động Owl Land</h3>
+                <p>Mở cửa thử nghiệm server nội bộ cho thành viên Tổ Cú. Những viên gạch đầu tiên đã được đặt xuống!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Owl Land - Crafted by Hadez King</p>
+    </footer>
+
+</body>
+</html>
